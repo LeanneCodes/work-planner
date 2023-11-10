@@ -4,6 +4,14 @@
     padding: 0;
 }
 
+:root {
+    --lightGray: lightgray;
+    --available: green;
+    --busy: red;
+    --save: blue;
+}
+
+/* Header */
 header {
     text-align: center;
     padding: 50px;
@@ -11,11 +19,41 @@ header {
     margin-bottom: 50px;
 }
 
+/* Timeblock */
 .time {
-    border-top: 1px solid gray;
+    border-top: 1px solid var(--lightGray);
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding-right: 10px;
+}
+
+.diary-input {
+    background-color: var(--lightGray);
+    border-radius: 0;
+    height: 60px;
+}
+
+.red {
+    background-color: var(--busy) !important;
+}
+
+.green {
+    background-color: var(--available) !important;
+}
+
+.save-btn {
+    border-radius: 0px 10px 10px 0px;
+    height: 60px;
+    border: 1px solid var(--lightGray);
+    background-color: var(--save);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-floppy-disk {
+    font-size: 20px;
+    color: white;
 }
