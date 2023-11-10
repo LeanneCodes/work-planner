@@ -35,11 +35,15 @@ header {
     height: 60px;
 }
 
-.red {
+.diary-input:focus {
+    background-color: var(--lightGray);
+}
+
+.red, .red:focus {
     background-color: var(--busy) !important;
 }
 
-.green {
+.green, .green:focus {
     background-color: var(--available) !important;
 }
 
