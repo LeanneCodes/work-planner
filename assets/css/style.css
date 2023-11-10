@@ -57,3 +57,7 @@ header {
     font-size: 20px;
     color: white;
 }
+
+form {
+    margin-bottom: 50px;
+}
