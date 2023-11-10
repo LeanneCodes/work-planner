@@ -1,6 +1,9 @@
 // TODO: Display the current day at the top of the calender when a user opens the planner.
 // use dayjs() to implement this feature
 
+var currentDay = $('#currentDay');
+currentDay.text(dayjs().format('dddd, MMMM D, YYYY'));
+
 // TODO: Present timeblocks for standard business hours when the user scrolls down.
 // time schedule should be from 9am to 5pm
 // if a block has the text content "lunch", highlight this a colour where no meetings can be scheduled

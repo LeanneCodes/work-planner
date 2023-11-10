@@ -4,3 +4,9 @@
     padding: 0;
 }
 
+header {
+    text-align: center;
+    padding: 50px;
+    border-bottom: 10px solid black;
+    margin-bottom: 50px;
+}
