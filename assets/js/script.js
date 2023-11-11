@@ -119,18 +119,20 @@ if (label5 < currentTime) {
 
 // TODO: Allow a user to enter an event when they click a timeblock
 // while the timeblock is green, the user can add text
-// once the event passes, the text remains in the cell, but it changes to grey
 console.log(Object.values(nineAM)[0].matches('.form-control')) // true
 
 var inputTimes = [nineAM, tenAM, elevenAM, twelvePM, onePM, twoPM, threePM, fourPM, fivePM];
 console.log(inputTimes);
 
-if (nineAM.classList[1] != 'available') {
-    nineAM.attr('disabled');
-}
+for (var i = 0; i < inputTimes.length; i++) {
+    if(!Object.values(inputTimes[i])[0].matches('.available')) {
+        console.log(Object.values(inputTimes[i])[0].matches('.available'))
+        inputTimes[i].attr('disabled', 'disabled');
+    };
+};
 
 // TODO: Save the event in local storage when the save button is clicked in that timeblock.
-// utilise local storage to save calendar inputs
+// utilise local storage to save calendar inputs, while the input cell is green
 
 // TODO: Persist events between refreshes of a page
 // use event.PreventDefault() to stop forms from refreshing and deleting data
