@@ -25,9 +25,6 @@ var twoPM = $('input[id="2pm"]');
 var threePM = $('input[id="3pm"]');
 var fourPM = $('input[id="4pm"]');
 var fivePM = $('input[id="5pm"]');
-var eightPM = $('input[id="8pm"]');
-var ninePM = $('input[id="9pm"]');
-var tenPM = $('input[id="10pm"]');
 
 // console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 9
 // console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
@@ -46,11 +43,8 @@ var label2PM = parseInt(twoPM.parent("div").siblings("div").children("label").eq
 var label3PM = parseInt(threePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 15
 var label4PM = parseInt(fourPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 16
 var label5PM = parseInt(fivePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12;  // 17
-var label8PM = parseInt(eightPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12;  // 20
-var label9PM = parseInt(ninePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12;  // 21
-var label10PM = parseInt(tenPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12;  // 22
 
-var labelTimes = [label9AM, label10AM, label11AM, label12PM, label1PM, label2PM, label3PM, label4PM, label5PM, label8PM, label9PM, label10PM];
+var labelTimes = [label9AM, label10AM, label11AM, label12PM, label1PM, label2PM, label3PM, label4PM, label5PM];
 console.log(labelTimes);
 
 if (label9AM < currentTime) {
@@ -125,35 +119,11 @@ if (label5PM < currentTime) {
     fivePM.addClass('future');
 };
 
-if (label8PM < currentTime) {
-    eightPM.addClass('past');
-} else if (label8PM === currentTime) {
-    eightPM.addClass('present');
-} else {
-    eightPM.addClass('future');
-};
-
-if (label9PM < currentTime) {
-    ninePM.addClass('past');
-} else if (label9PM === currentTime) {
-    ninePM.addClass('present');
-} else {
-    ninePM.addClass('future');
-};
-
-if (label10PM < currentTime) {
-    tenPM.addClass('past');
-} else if (label10PM === currentTime) {
-    tenPM.addClass('present');
-} else {
-    tenPM.addClass('future');
-};
-
 // TODO: Allow a user to enter an event when they click a timeblock
 // while the timeblock is green, the user can add text
-console.log(Object.values(nineAM)[0].matches('.form-control')) // true
+console.log(Object.values(nineAM)[0].matches('.form-control')); // true
 
-var inputTimes = [nineAM, tenAM, elevenAM, twelvePM, onePM, twoPM, threePM, fourPM, fivePM, eightPM, ninePM, tenPM];
+var inputTimes = [nineAM, tenAM, elevenAM, twelvePM, onePM, twoPM, threePM, fourPM, fivePM];
 console.log(inputTimes[0][0].id);
 
 var btn9 = $('button[id="9am"]');
@@ -165,11 +135,8 @@ var btn2 = $('button[id="2pm"]');
 var btn3 = $('button[id="3pm"]');
 var btn4 = $('button[id="4pm"]');
 var btn5 = $('button[id="5pm"]');
-var btn8 = $('button[id="8pm"]');
-var btn9b = $('button[id="9pm"]');
-var btn10b = $('button[id="10pm"]');
 
-var arrayOfBtns = [btn9, btn10, btn11, btn12, btn1, btn2, btn3, btn4, btn5, btn8, btn9b, btn10b];
+var arrayOfBtns = [btn9, btn10, btn11, btn12, btn1, btn2, btn3, btn4, btn5];
 console.log(arrayOfBtns[0][0].id);
 
 // disable save button if past current time
@@ -234,28 +201,13 @@ function addToCalendar() {
                 event.preventDefault();
                 localStorage.setItem("Time: " + label5PM + "PM", fivePM.val());
             });
-
-            btn8.on('click', function(event) {
-                event.preventDefault();
-                localStorage.setItem("Time: " + label8PM + "PM", eightPM.val());
-            });
-
-            btn9b.on('click', function(event) {
-                event.preventDefault();
-                localStorage.setItem("Time: " + label9PM + "PM", ninePM.val());
-            });
-
-            btn10b.on('click', function(event) {
-                event.preventDefault();
-                localStorage.setItem("Time: " + label10PM + "PM", tenPM.val());
-            });
         } else {
             inputTimes[i].attr('disabled', 'disabled');
-        }
+        };
     };
-}
+};
 
-addToCalendar()
+addToCalendar();
 
 // TODO: Save the event in local storage when the save button is clicked in that timeblock.
 // utilise local storage to save calendar inputs, while the input cell is green ✅
@@ -290,16 +242,6 @@ function retrieveLocalData() {
 
     var fivePMData = localStorage.getItem("Time: " + label5PM + "PM");
     fivePM.val(fivePMData);
-
-    var eightPMData = localStorage.getItem("Time: " + label8PM + "PM");
-    eightPM.val(eightPMData);
-
-    var ninePMData = localStorage.getItem("Time: " + label9PM + "PM");
-    ninePM.val(ninePMData);
-
-    var tenPMData = localStorage.getItem("Time: " + label10PM + "PM");
-    tenPM.val(tenPMData);
-}
+};
 
 retrieveLocalData();
-
