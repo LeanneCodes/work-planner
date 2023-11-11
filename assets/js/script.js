@@ -45,6 +45,9 @@ var label3 = parseInt(threePM.parent("div").siblings("div").children("label").eq
 var label4 = parseInt(fourPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 16
 var label5 = parseInt(fivePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12;  // 17
 
+var labelTimes = [label9, label10, label11, label12, label1, label2, label3, label4, label5];
+console.log(labelTimes);
+
 if (label9 < currentTime) {
     nineAM.addClass('diary-input');
 } else if (label9 === currentTime) {
@@ -133,6 +136,8 @@ for (var i = 0; i < inputTimes.length; i++) {
 
 // TODO: Save the event in local storage when the save button is clicked in that timeblock.
 // utilise local storage to save calendar inputs, while the input cell is green
+
+
 
 // TODO: Persist events between refreshes of a page
 // use event.PreventDefault() to stop forms from refreshing and deleting data
