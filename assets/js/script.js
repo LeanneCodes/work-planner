@@ -152,21 +152,36 @@ var arrayOfBtns = [btn9am, btn10am, btn11am, btn12pm, btn1pm, btn2pm, btn3pm, bt
 console.log(arrayOfBtns);
 
 for (var i = 0; i < inputTimes.length; i++) {
-    if(inputTimes[i].val() != "") {
-        console.log("not empty");
-        // call a function that saves the content to local storage
-    } else {
-        console.log("empty");
+    console.log(inputTimes[i]);
+    for (var j = 0; j < arrayOfBtns.length; j++) {
+        console.log(arrayOfBtns[j]);
+        if (inputTimes[i][0].id === arrayOfBtns[j]) {
+            console.log("match");
+            var data = inputTimes[i][0].value;
+            console.log(data);
+            addValueToLocalStorage(inputTimes[i][0].id, data);
+        }
     }
 };
+
+function addValueToLocalStorage(time, inputValue) {
+    var calendarArray = JSON.parse(localStorage.getItem("schedule")) || [];
+    console.log(calendarArray);
+    
+    var newInput = { time: time, inputValue: inputValue };
+    console.log(newInput);
+    
+    calendarArray.push(newInput);
+    console.log(calendarArray);
+
+    localStorage.setItem("schedule", JSON.stringify(calendarArray));
+};
+
 
 var saveBtn = $('.save-btn');
 console.log(saveBtn);
 
-saveBtn.on('click', function(event) {
-    event.preventDefault();
-    console.log(event);
-})
+// saveBtn.on('click', saveInputText);
 
 // TODO: Persist events between refreshes of a page
 // use event.PreventDefault() to stop forms from refreshing and deleting data
