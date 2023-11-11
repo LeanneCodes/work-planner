@@ -26,7 +26,7 @@ var threePM = $('input[id="3pm"]');
 var fourPM = $('input[id="4pm"]');
 var fivePM = $('input[id="5pm"]');
 console.log(nineAM.val("hello"));
-console.log(tenAM.val("hello"));
+console.log(fivePM.val("hello"));
 
 console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 9
 console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
@@ -128,61 +128,45 @@ console.log(Object.values(nineAM)[0].matches('.form-control')) // true
 var inputTimes = [nineAM, tenAM, elevenAM, twelvePM, onePM, twoPM, threePM, fourPM, fivePM];
 console.log(inputTimes);
 
+var btn9AM = $('button[id="9am"]');
+var btn10AM = $('button[id="10am"]');
+var btn11AM = $('button[id="11am"]');
+var btn12PM = $('button[id="12pm"]');
+var btn1PM = $('button[id="1pm"]');
+var btn2PM = $('button[id="2pm"]');
+var btn3PM = $('button[id="3pm"]');
+var btn4PM = $('button[id="4pm"]');
+var btn5PM = $('button[id="5pm"]');
+
+var arrayOfBtns = [btn9AM, btn10AM, btn11AM, btn12PM, btn1PM, btn2PM, btn3PM, btn4PM, btn5PM];
+console.log(arrayOfBtns);
+
 for (var i = 0; i < inputTimes.length; i++) {
     if(!Object.values(inputTimes[i])[0].matches('.available')) {
         console.log(Object.values(inputTimes[i])[0].matches('.available'))
         inputTimes[i].attr('disabled', 'disabled');
-    };
-};
-
-// TODO: Save the event in local storage when the save button is clicked in that timeblock.
-// utilise local storage to save calendar inputs, while the input cell is green
-var btn9am = $('label[id="9am"]')[0].id;
-console.log(btn9am[0].id);
-var btn10am = $('label[id="10am"]')[0].id;
-var btn11am = $('label[id="11am"]')[0].id;
-var btn12pm = $('label[id="12pm"]')[0].id;
-var btn1pm = $('label[id="1pm"]')[0].id;
-var btn2pm = $('label[id="2pm"]')[0].id;
-var btn3pm = $('label[id="3pm"]')[0].id;
-var btn4pm = $('label[id="4pm"]')[0].id;
-var btn5pm = $('label[id="5pm"]')[0].id;
-
-var arrayOfBtns = [btn9am, btn10am, btn11am, btn12pm, btn1pm, btn2pm, btn3pm, btn4pm, btn5pm];
-console.log(arrayOfBtns);
-
-for (var i = 0; i < inputTimes.length; i++) {
-    console.log(inputTimes[i]);
-    for (var j = 0; j < arrayOfBtns.length; j++) {
-        console.log(arrayOfBtns[j]);
-        if (inputTimes[i][0].id === arrayOfBtns[j]) {
-            console.log("match");
-            var data = inputTimes[i][0].value;
-            console.log(data);
-            addValueToLocalStorage(inputTimes[i][0].id, data);
+    } else {
+        console.log(inputTimes[i][0]);
+        if (inputTimes[i][0].value != "") {
+            var dataInput = inputTimes[i][0].value;
+            console.log(dataInput);
+            saveData(dataInput)
         }
     }
 };
 
-function addValueToLocalStorage(time, inputValue) {
-    var calendarArray = JSON.parse(localStorage.getItem("schedule")) || [];
-    console.log(calendarArray);
-    
-    var newInput = { time: time, inputValue: inputValue };
-    console.log(newInput);
-    
-    calendarArray.push(newInput);
-    console.log(calendarArray);
+// TODO: Save the event in local storage when the save button is clicked in that timeblock.
+// utilise local storage to save calendar inputs, while the input cell is green
+function saveData(data) {
+    localStorage.setItem("Time:", data);
+}
 
-    localStorage.setItem("schedule", JSON.stringify(calendarArray));
-};
+// TODO
+// user enters data into green cell onl
 
-
-var saveBtn = $('.save-btn');
-console.log(saveBtn);
-
-// saveBtn.on('click', saveInputText);
+// user clicks on the corresponding save button
+// data is saved to local storage
 
 // TODO: Persist events between refreshes of a page
-// use event.PreventDefault() to stop forms from refreshing and deleting data
+// use event.preventDefault() to stop forms from refreshing and deleting data
 
