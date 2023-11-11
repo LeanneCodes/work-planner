@@ -5,10 +5,16 @@
 }
 
 :root {
-    --lightGray: lightgray;
-    --available: #77DD77;
-    --busy: #FF7276;
-    --save: #008AD8;
+    --past: #d3d3d3;
+    --future: #77DD77;
+    --present: #ff6961;
+    --save: #06aed5;;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
 }
 
 /* Header */
@@ -21,7 +27,7 @@ header {
 
 /* Timeblock */
 .time {
-    border-top: 1px solid var(--lightGray);
+    border-top: 1px solid var(--past);
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -29,24 +35,27 @@ header {
     padding-right: 10px;
 }
 
-.diary-input {
-    background-color: var(--lightGray);
+.past {
+    background-color: var(--past);
+    border-top: 1px solid white;
     border-radius: 0;
     height: 60px;
 }
 
-.diary-input:focus {
-    background-color: var(--lightGray);
+.past:focus {
+    background-color: var(--past);
 }
 
-.busy, .busy:focus {
-    background-color: var(--busy) !important;
+.present, .present:focus {
+    background-color: var(--present) !important;
+    border-top: 1px solid white;
     border-radius: 0;
     height: 60px;
 }
 
-.available, .available:focus {
-    background-color: var(--available) !important;
+.future, .future:focus {
+    background-color: var(--future) !important;
+    border-top: 1px solid white;
     border-radius: 0;
     height: 60px;
 }
@@ -54,7 +63,7 @@ header {
 .save-btn {
     border-radius: 0px 10px 10px 0px;
     height: 60px;
-    border: 1px solid var(--lightGray);
+    border-top: 1px solid white;
     background-color: var(--save);
     display: flex;
     justify-content: center;
@@ -64,6 +73,11 @@ header {
 .fa-floppy-disk {
     font-size: 20px;
     color: white;
+}
+
+.save-btn i:hover {
+    font-size: 25px;
+    transition: all 0.3s ease-in-out;
 }
 
 form {

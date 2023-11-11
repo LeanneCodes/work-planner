@@ -10,7 +10,7 @@ currentDay.text(dayjs().format('dddd, MMMM D, YYYY'));
 // TODO: Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 // if the current time is after a timeblock, that timeblock should be grey
 // if the current time matches a timeblock, it should be red
-// if the current time is before the remaining timeblocks, it should be green and available to add text
+// if the current time is before the remaining timeblocks, it should be green and future to add text
 
 var currentTime = parseInt(dayjs().format('H'));
 console.log(currentTime);
@@ -54,99 +54,99 @@ var labelTimes = [label9AM, label10AM, label11AM, label12PM, label1PM, label2PM,
 console.log(labelTimes);
 
 if (label9AM < currentTime) {
-    nineAM.addClass('diary-input');
+    nineAM.addClass('past');
 } else if (label9AM === currentTime) {
-    nineAM.addClass('busy');
+    nineAM.addClass('present');
 } else {
-    nineAM.addClass('available');
+    nineAM.addClass('future');
 };
 
 if (label10AM < currentTime) {
-    tenAM.addClass('diary-input');
+    tenAM.addClass('past');
 } else if (label10AM === currentTime) {
-    tenAM.addClass('busy');
+    tenAM.addClass('present');
 } else {
-    tenAM.addClass('available');
+    tenAM.addClass('future');
 };
 
 if (label11AM < currentTime) {
-    elevenAM.addClass('diary-input');
+    elevenAM.addClass('past');
 } else if (label11AM === currentTime) {
-    elevenAM.addClass('busy');
+    elevenAM.addClass('present');
 } else {
-    elevenAM.addClass('available');
+    elevenAM.addClass('future');
 };
 
 if (label12PM < currentTime) {
-    twelvePM.addClass('diary-input');
+    twelvePM.addClass('past');
 } else if (label12PM === currentTime) {
-    twelvePM.addClass('busy');
+    twelvePM.addClass('present');
 } else {
-    twelvePM.addClass('available');
+    twelvePM.addClass('future');
 };
 
 if (label1PM < currentTime) {
-    onePM.addClass('diary-input');
+    onePM.addClass('past');
 } else if (label1PM === currentTime) {
-    onePM.addClass('busy');
+    onePM.addClass('present');
 } else {
-    onePM.addClass('available');
+    onePM.addClass('future');
 };
 
 if (label2PM < currentTime) {
-    twoPM.addClass('diary-input');
+    twoPM.addClass('past');
 } else if (label2PM === currentTime) {
-    twoPM.addClass('busy');
+    twoPM.addClass('present');
 } else {
-    twoPM.addClass('available');
+    twoPM.addClass('future');
 };
 
 if (label3PM < currentTime) {
-    threePM.addClass('diary-input');
+    threePM.addClass('past');
 } else if (label3PM === currentTime) {
-    threePM.addClass('busy');
+    threePM.addClass('present');
 } else {
-    threePM.addClass('available');
+    threePM.addClass('future');
 };
 
 if (label4PM < currentTime) {
-    fourPM.addClass('diary-input');
+    fourPM.addClass('past');
 } else if (label4PM === currentTime) {
-    fourPM.addClass('busy');
+    fourPM.addClass('present');
 } else {
-    fourPM.addClass('available');
+    fourPM.addClass('future');
 };
 
 if (label5PM < currentTime) {
-    fivePM.addClass('diary-input');
+    fivePM.addClass('past');
 } else if (label5PM === currentTime) {
-    fivePM.addClass('busy');
+    fivePM.addClass('present');
 } else {
-    fivePM.addClass('available');
+    fivePM.addClass('future');
 };
 
 if (label8PM < currentTime) {
-    eightPM.addClass('diary-input');
+    eightPM.addClass('past');
 } else if (label8PM === currentTime) {
-    eightPM.addClass('busy');
+    eightPM.addClass('present');
 } else {
-    eightPM.addClass('available');
+    eightPM.addClass('future');
 };
 
 if (label9PM < currentTime) {
-    ninePM.addClass('diary-input');
+    ninePM.addClass('past');
 } else if (label9PM === currentTime) {
-    ninePM.addClass('busy');
+    ninePM.addClass('present');
 } else {
-    ninePM.addClass('available');
+    ninePM.addClass('future');
 };
 
 if (label10PM < currentTime) {
-    tenPM.addClass('diary-input');
+    tenPM.addClass('past');
 } else if (label10PM === currentTime) {
-    tenPM.addClass('busy');
+    tenPM.addClass('present');
 } else {
-    tenPM.addClass('available');
+    tenPM.addClass('future');
 };
 
 // TODO: Allow a user to enter an event when they click a timeblock
@@ -175,10 +175,10 @@ console.log(arrayOfBtns[0][0].id);
 // disable save button if past current time
 for (var a = 0; a < inputTimes.length; a++) {
     for (var b = 0; b < arrayOfBtns.length; b++) {
-        if (inputTimes[a][0].id === arrayOfBtns[b][0].id && !inputTimes[a][0].className.includes("available")) {
+        if (inputTimes[a][0].id === arrayOfBtns[b][0].id && !inputTimes[a][0].className.includes("future")) {
             console.log(inputTimes[a][0].id);
             console.log(arrayOfBtns[b][0].id);
-            console.log(inputTimes[a][0].className.includes("available"));
+            console.log(inputTimes[a][0].className.includes("future"));
             console.log(arrayOfBtns[b][0]);
             var disabled = arrayOfBtns[b][0];
         }
@@ -188,8 +188,8 @@ for (var a = 0; a < inputTimes.length; a++) {
 
 function addToCalendar() {
     for (var i = 0; i < inputTimes.length; i++) {
-        if(Object.values(inputTimes[i])[0].matches('.available')) {
-            console.log(Object.values(inputTimes[i])[0].matches('.available'));
+        if(Object.values(inputTimes[i])[0].matches('.future')) {
+            console.log(Object.values(inputTimes[i])[0].matches('.future'));
             btn9.on('click', function(event) {
                 event.preventDefault();
                 localStorage.setItem("Time: " + label9AM + "AM", nineAM.val());
