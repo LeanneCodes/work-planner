@@ -207,6 +207,30 @@ addToCalendar()
 // TODO: Persist events between refreshes of a page
 // use event.preventDefault() to stop forms from refreshing and deleting data
 function retrieveLocalData() {
+    var nineAMData = localStorage.getItem("Time: " + label9AM + "AM");
+    nineAM.val(nineAMData);
+
+    var tenAMData = localStorage.getItem("Time: " + label10AM + "AM");
+    tenAM.val(tenAMData);
+
+    var elevenAMData = localStorage.getItem("Time: " + label11AM + "AM");
+    elevenAM.val(elevenAMData);
+
+    var twelvePMData = localStorage.getItem("Time: " + label2PM + "PM");
+    twelvePM.val(twelvePMData);
+
+    var onePMData = localStorage.getItem("Time: " + label1PM + "PM");
+    onePM.val(onePMData);
+
+    var twoPMData = localStorage.getItem("Time: " + label2PM + "PM");
+    twoPM.val(twoPMData);
+
+    var threePMData = localStorage.getItem("Time: " + label3PM + "PM");
+    threePM.val(threePMData);
+
+    var fourPMData = localStorage.getItem("Time: " + label4PM + "PM");
+    fourPM.val(fourPMData);
+
     var fivePMData = localStorage.getItem("Time: " + label5PM + "PM");
     fivePM.val(fivePMData);
 }
