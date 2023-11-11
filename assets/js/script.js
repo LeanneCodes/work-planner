@@ -25,11 +25,9 @@ var twoPM = $('input[id="2pm"]');
 var threePM = $('input[id="3pm"]');
 var fourPM = $('input[id="4pm"]');
 var fivePM = $('input[id="5pm"]');
-console.log(nineAM.val("hello"));
-console.log(fivePM.val("hello"));
 
-console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 9
-console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
+// console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 9
+// console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
 
 var label9 = parseInt(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
 
@@ -141,34 +139,73 @@ var btn5PM = $('button[id="5pm"]');
 var arrayOfBtns = [btn9AM, btn10AM, btn11AM, btn12PM, btn1PM, btn2PM, btn3PM, btn4PM, btn5PM];
 console.log(arrayOfBtns);
 
-for (var i = 0; i < inputTimes.length; i++) {
-    if(!Object.values(inputTimes[i])[0].matches('.available')) {
-        console.log(Object.values(inputTimes[i])[0].matches('.available'))
-        inputTimes[i].attr('disabled', 'disabled');
-    } else {
-        console.log(inputTimes[i][0]);
-        if (inputTimes[i][0].value != "") {
-            var dataInput = inputTimes[i][0].value;
-            var saveBtn = inputTimes[i][0].parentElement.parentElement.children[2].children[0].id;
-            console.log(dataInput);
-            console.log(saveBtn);
-            saveData(dataInput, saveBtn);
-        }
-    }
-};
+// for (var i = 0; i < inputTimes.length; i++) {
+//     if(!Object.values(inputTimes[i])[0].matches('.available')) {
+//         console.log(Object.values(inputTimes[i])[0].matches('.available'))
+//         inputTimes[i].attr('disabled', 'disabled');
+//     }
+// };
 
-// TODO: Save the event in local storage when the save button is clicked in that timeblock.
-// utilise local storage to save calendar inputs, while the input cell is green
-function saveData(data, btn) {
-    if (data != "") {
-        localStorage.setItem(btn, data);
-    }
+
+btn9AM.on('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem("Time: " + label9 + "AM", nineAM.val());
+});
+
+btn10AM.on('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem("Time: " + label10 + "AM", tenAM.val());
+});
+
+btn11AM.on('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem("Time: " + label11 + "AM", elevenAM.val());
+});
+
+btn12PM.on('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem("Time: " + label12 + "PM", twelvePM.val());
+});
+
+btn1PM.on('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem("Time: " + label1 + "PM", onePM.val());
+});
+
+btn2PM.on('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem("Time: " + label2 + "PM", twoPM.val());
+});
+
+btn3PM.on('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem("Time: " + label3 + "PM", threePM.val());
+});
+
+btn4PM.on('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem("Time: " + label4 + "PM", fourPM.val());
+});
+
+btn5PM.on('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem("Time: " + label5 + "PM", fivePM.val());
+});
+
+function addToCalendar() {
+    for (var i = 0; i < inputTimes.length; i++) {
+        if(!Object.values(inputTimes[i])[0].matches('.available')) {
+            // console.log(Object.values(inputTimes[i])[0].matches('.available'))
+            inputTimes[i].attr('disabled', 'disabled');
+            console.log(inputTimes[i][0].id.slice(0,-2));
+        }
+    };
 }
 
-var submitBtn = $('button[type="submit"]');
-console.log(submitBtn);
+// addToCalendar()
+// TODO: Save the event in local storage when the save button is clicked in that timeblock.
+// utilise local storage to save calendar inputs, while the input cell is green
 
-submitBtn.on('click', saveData);
 
 // TODO: Persist events between refreshes of a page
 // use event.preventDefault() to stop forms from refreshing and deleting data
