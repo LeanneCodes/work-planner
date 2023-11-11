@@ -180,11 +180,11 @@ for (var a = 0; a < inputTimes.length; a++) {
             console.log(arrayOfBtns[b][0].id);
             console.log(inputTimes[a][0].className.includes("available"));
             console.log(arrayOfBtns[b][0]);
-            var disabled = arrayOfBtns[b][0]
+            var disabled = arrayOfBtns[b][0];
         }
-        disabled.setAttribute("disabled", 'disabled')
-    }
-}
+        disabled.setAttribute("disabled", 'disabled');
+    };
+};
 
 function addToCalendar() {
     for (var i = 0; i < inputTimes.length; i++) {
@@ -256,6 +256,7 @@ function addToCalendar() {
 }
 
 addToCalendar()
+
 // TODO: Save the event in local storage when the save button is clicked in that timeblock.
 // utilise local storage to save calendar inputs, while the input cell is green ✅
 
