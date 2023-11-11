@@ -27,8 +27,27 @@ var fivePM = $('input[id="5pm"]');
 console.log(nineAM.val("hello"));
 console.log(tenAM.val("hello"));
 
-console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
-console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 9
+console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
+
+var label9 = nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+console.log(typeof label9);
+console.log(label9 < currentTime);
+console.log(typeof currentTime);
+var label10 = tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+var label11 = elevenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+var label12 = twelvePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+var label1 = onePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+var label2 = twoPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+var label3 = threePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+var label4 = fourPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+var label5 = fivePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+
+if (label9 < currentTime) {
+    console.log('hello');
+    nineAM.addClass('diary-input');
+    console.log(nineAM);
+};
 
 
 // TODO: Allow a user to enter an event when they click a timeblock
