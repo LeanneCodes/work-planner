@@ -6,9 +6,9 @@
 
 :root {
     --lightGray: lightgray;
-    --available: green;
-    --busy: red;
-    --save: blue;
+    --available: #77DD77;
+    --busy: #FF7276;
+    --save: #008AD8;
 }
 
 /* Header */
