@@ -8,7 +8,7 @@
     --past: #d3d3d3;
     --future: #77DD77;
     --present: #ff6961;
-    --save: #06aed5;;
+    --save: #06aed5;
 }
 
 body {
@@ -46,6 +46,10 @@ header {
     background-color: var(--past);
 }
 
+.past:disabled {
+    background-color: var(--past);
+}
+
 .present, .present:focus {
     background-color: var(--present) !important;
     border-top: 1px solid white;
@@ -70,14 +74,13 @@ header {
     align-items: center;
 }
 
+.save-btn:disabled {
+    background-color: #94daea;
+}
+
 .fa-floppy-disk {
     font-size: 20px;
     color: white;
-}
-
-.save-btn i:hover {
-    font-size: 25px;
-    transition: all 0.3s ease-in-out;
 }
 
 form {
