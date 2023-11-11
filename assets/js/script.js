@@ -149,23 +149,26 @@ for (var i = 0; i < inputTimes.length; i++) {
         console.log(inputTimes[i][0]);
         if (inputTimes[i][0].value != "") {
             var dataInput = inputTimes[i][0].value;
+            var saveBtn = inputTimes[i][0].parentElement.parentElement.children[2].children[0].id;
             console.log(dataInput);
-            saveData(dataInput)
+            console.log(saveBtn);
+            saveData(dataInput, saveBtn);
         }
     }
 };
 
 // TODO: Save the event in local storage when the save button is clicked in that timeblock.
 // utilise local storage to save calendar inputs, while the input cell is green
-function saveData(data) {
-    localStorage.setItem("Time:", data);
+function saveData(data, btn) {
+    if (data != "") {
+        localStorage.setItem(btn, data);
+    }
 }
 
-// TODO
-// user enters data into green cell onl
+var submitBtn = $('button[type="submit"]');
+console.log(submitBtn);
 
-// user clicks on the corresponding save button
-// data is saved to local storage
+submitBtn.on('click', saveData);
 
 // TODO: Persist events between refreshes of a page
 // use event.preventDefault() to stop forms from refreshing and deleting data
