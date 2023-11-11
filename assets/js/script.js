@@ -12,7 +12,7 @@ currentDay.text(dayjs().format('dddd, MMMM D, YYYY'));
 // if the current time matches a timeblock, it should be red
 // if the current time is before the remaining timeblocks, it should be green and available to add text
 
-var currentTime = parseInt(dayjs().format('h'));
+var currentTime = parseInt(dayjs().format('H'));
 console.log(currentTime);
 
 var nineAM = $('input[id="9am"]');
@@ -36,19 +36,86 @@ console.log(typeof label9);
 console.log(label9 < currentTime);
 console.log(typeof currentTime);
 
-var label10 = parseInt(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
-var label11 = parseInt(elevenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
-var label12 = parseInt(twelvePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
-var label1 = parseInt(onePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
-var label2 = parseInt(twoPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
-var label3 = parseInt(threePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
-var label4 = parseInt(fourPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
-var label5 = parseInt(fivePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+var label10 = parseInt(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
+var label11 = parseInt(elevenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 11
+var label12 = parseInt(twelvePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 12
+var label1 = parseInt(onePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 13
+var label2 = parseInt(twoPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 14
+var label3 = parseInt(threePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 15
+var label4 = parseInt(fourPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 16
+var label5 = parseInt(fivePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12;  // 17
 
 if (label9 < currentTime) {
     nineAM.addClass('diary-input');
+} else if (label9 === currentTime) {
+    nineAM.addClass('busy');
+} else {
+    nineAM.addClass('available');
 };
 
+if (label10 < currentTime) {
+    tenAM.addClass('diary-input');
+} else if (label10 === currentTime) {
+    tenAM.addClass('busy');
+} else {
+    tenAM.addClass('available');
+};
+
+if (label11 < currentTime) {
+    elevenAM.addClass('diary-input');
+} else if (label11 === currentTime) {
+    elevenAM.addClass('busy');
+} else {
+    elevenAM.addClass('available');
+};
+
+if (label12 < currentTime) {
+    twelvePM.addClass('diary-input');
+} else if (label12 === currentTime) {
+    twelvePM.addClass('busy');
+} else {
+    twelvePM.addClass('available');
+};
+
+if (label1 < currentTime) {
+    onePM.addClass('diary-input');
+} else if (label1 === currentTime) {
+    onePM.addClass('busy');
+} else {
+    onePM.addClass('available');
+};
+
+if (label2 < currentTime) {
+    twoPM.addClass('diary-input');
+} else if (label2 === currentTime) {
+    twoPM.addClass('busy');
+} else {
+    twoPM.addClass('available');
+};
+
+if (label3 < currentTime) {
+    threePM.addClass('diary-input');
+} else if (label3 === currentTime) {
+    threePM.addClass('busy');
+} else {
+    threePM.addClass('available');
+};
+
+if (label4 < currentTime) {
+    fourPM.addClass('diary-input');
+} else if (label4 === currentTime) {
+    fourPM.addClass('busy');
+} else {
+    fourPM.addClass('available');
+};
+
+if (label5 < currentTime) {
+    fivePM.addClass('diary-input');
+} else if (label5 === currentTime) {
+    fivePM.addClass('busy');
+} else {
+    fivePM.addClass('available');
+};
 
 // TODO: Allow a user to enter an event when they click a timeblock
 // while the timeblock is green, the user can add text

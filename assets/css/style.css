@@ -39,12 +39,16 @@ header {
     background-color: var(--lightGray);
 }
 
-.red, .red:focus {
+.busy, .busy:focus {
     background-color: var(--busy) !important;
+    border-radius: 0;
+    height: 60px;
 }
 
-.green, .green:focus {
+.available, .available:focus {
     background-color: var(--available) !important;
+    border-radius: 0;
+    height: 60px;
 }
 
 .save-btn {
