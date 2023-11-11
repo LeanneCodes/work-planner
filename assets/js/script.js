@@ -12,7 +12,9 @@ currentDay.text(dayjs().format('dddd, MMMM D, YYYY'));
 // if the current time matches a timeblock, it should be red
 // if the current time is before the remaining timeblocks, it should be green and available to add text
 
-var currentTime;
+var currentTime = dayjs().format('h');
+console.log(currentTime);
+
 var nineAM = $('input[id="9am"]');
 var tenAM = $('input[id="10am"]');
 var elevenAM = $('input[id="11am"]');
@@ -24,6 +26,9 @@ var fourPM = $('input[id="4pm"]');
 var fivePM = $('input[id="5pm"]');
 console.log(nineAM.val("hello"));
 console.log(tenAM.val("hello"));
+
+console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
 
 
 // TODO: Allow a user to enter an event when they click a timeblock
