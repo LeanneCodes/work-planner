@@ -16,6 +16,7 @@ var currentTime = parseInt(dayjs().format('H'));
 console.log(currentTime);
 
 var nineAM = $('input[id="9am"]');
+console.log(nineAM);
 var tenAM = $('input[id="10am"]');
 var elevenAM = $('input[id="11am"]');
 var twelvePM = $('input[id="12pm"]');
@@ -136,6 +137,20 @@ for (var i = 0; i < inputTimes.length; i++) {
 
 // TODO: Save the event in local storage when the save button is clicked in that timeblock.
 // utilise local storage to save calendar inputs, while the input cell is green
+var btn9am = $('label[id="9am"]')[0].id;
+console.log(btn9am[0].id);
+var btn10am = $('label[id="10am"]')[0].id;
+var btn11am = $('label[id="11am"]')[0].id;
+var btn12pm = $('label[id="12pm"]')[0].id;
+var btn1pm = $('label[id="1pm"]')[0].id;
+var btn2pm = $('label[id="2pm"]')[0].id;
+var btn3pm = $('label[id="3pm"]')[0].id;
+var btn4pm = $('label[id="4pm"]')[0].id;
+var btn5pm = $('label[id="5pm"]')[0].id;
+
+var arrayOfBtns = [btn9am, btn10am, btn11am, btn12pm, btn1pm, btn2pm, btn3pm, btn4pm, btn5pm];
+console.log(arrayOfBtns);
+
 for (var i = 0; i < inputTimes.length; i++) {
     if(inputTimes[i].val() != "") {
         console.log("not empty");
