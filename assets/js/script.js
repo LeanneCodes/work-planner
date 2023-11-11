@@ -12,7 +12,7 @@ currentDay.text(dayjs().format('dddd, MMMM D, YYYY'));
 // if the current time matches a timeblock, it should be red
 // if the current time is before the remaining timeblocks, it should be green and available to add text
 
-var currentTime = dayjs().format('h');
+var currentTime = parseInt(dayjs().format('h'));
 console.log(currentTime);
 
 var nineAM = $('input[id="9am"]');
@@ -30,23 +30,23 @@ console.log(tenAM.val("hello"));
 console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 9
 console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
 
-var label9 = nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+var label9 = parseInt(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+
 console.log(typeof label9);
 console.log(label9 < currentTime);
 console.log(typeof currentTime);
-var label10 = tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
-var label11 = elevenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
-var label12 = twelvePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
-var label1 = onePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
-var label2 = twoPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
-var label3 = threePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
-var label4 = fourPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
-var label5 = fivePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2);
+
+var label10 = parseInt(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+var label11 = parseInt(elevenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+var label12 = parseInt(twelvePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+var label1 = parseInt(onePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+var label2 = parseInt(twoPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+var label3 = parseInt(threePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+var label4 = parseInt(fourPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+var label5 = parseInt(fivePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
 
 if (label9 < currentTime) {
-    console.log('hello');
     nineAM.addClass('diary-input');
-    console.log(nineAM);
 };
 
 
