@@ -29,91 +29,91 @@ var fivePM = $('input[id="5pm"]');
 // console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 9
 // console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
 
-var label9 = parseInt(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
+var label9AM = parseInt(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
 
-console.log(typeof label9);
-console.log(label9 < currentTime);
+console.log(typeof label9AM);
+console.log(label9AM < currentTime);
 console.log(typeof currentTime);
 
-var label10 = parseInt(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
-var label11 = parseInt(elevenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 11
-var label12 = parseInt(twelvePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 12
-var label1 = parseInt(onePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 13
-var label2 = parseInt(twoPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 14
-var label3 = parseInt(threePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 15
-var label4 = parseInt(fourPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 16
-var label5 = parseInt(fivePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12;  // 17
+var label10AM = parseInt(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
+var label11AM = parseInt(elevenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 11
+var label12PM = parseInt(twelvePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 12
+var label1PM = parseInt(onePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 13
+var label2PM = parseInt(twoPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 14
+var label3PM = parseInt(threePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 15
+var label4PM = parseInt(fourPM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12; // 16
+var label5PM = parseInt(fivePM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)) + 12;  // 17
 
-var labelTimes = [label9, label10, label11, label12, label1, label2, label3, label4, label5];
+var labelTimes = [label9AM, label10AM, label11AM, label12PM, label1PM, label2PM, label3PM, label4PM, label5PM];
 console.log(labelTimes);
 
-if (label9 < currentTime) {
+if (label9AM < currentTime) {
     nineAM.addClass('diary-input');
-} else if (label9 === currentTime) {
+} else if (label9AM === currentTime) {
     nineAM.addClass('busy');
 } else {
     nineAM.addClass('available');
 };
 
-if (label10 < currentTime) {
+if (label10AM < currentTime) {
     tenAM.addClass('diary-input');
-} else if (label10 === currentTime) {
+} else if (label10AM === currentTime) {
     tenAM.addClass('busy');
 } else {
     tenAM.addClass('available');
 };
 
-if (label11 < currentTime) {
+if (label11AM < currentTime) {
     elevenAM.addClass('diary-input');
-} else if (label11 === currentTime) {
+} else if (label11AM === currentTime) {
     elevenAM.addClass('busy');
 } else {
     elevenAM.addClass('available');
 };
 
-if (label12 < currentTime) {
+if (label12PM < currentTime) {
     twelvePM.addClass('diary-input');
-} else if (label12 === currentTime) {
+} else if (label12PM === currentTime) {
     twelvePM.addClass('busy');
 } else {
     twelvePM.addClass('available');
 };
 
-if (label1 < currentTime) {
+if (label1PM < currentTime) {
     onePM.addClass('diary-input');
-} else if (label1 === currentTime) {
+} else if (label1PM === currentTime) {
     onePM.addClass('busy');
 } else {
     onePM.addClass('available');
 };
 
-if (label2 < currentTime) {
+if (label2PM < currentTime) {
     twoPM.addClass('diary-input');
-} else if (label2 === currentTime) {
+} else if (label2PM === currentTime) {
     twoPM.addClass('busy');
 } else {
     twoPM.addClass('available');
 };
 
-if (label3 < currentTime) {
+if (label3PM < currentTime) {
     threePM.addClass('diary-input');
-} else if (label3 === currentTime) {
+} else if (label3PM === currentTime) {
     threePM.addClass('busy');
 } else {
     threePM.addClass('available');
 };
 
-if (label4 < currentTime) {
+if (label4PM < currentTime) {
     fourPM.addClass('diary-input');
-} else if (label4 === currentTime) {
+} else if (label4PM === currentTime) {
     fourPM.addClass('busy');
 } else {
     fourPM.addClass('available');
 };
 
-if (label5 < currentTime) {
+if (label5PM < currentTime) {
     fivePM.addClass('diary-input');
-} else if (label5 === currentTime) {
+} else if (label5PM === currentTime) {
     fivePM.addClass('busy');
 } else {
     fivePM.addClass('available');
@@ -126,17 +126,17 @@ console.log(Object.values(nineAM)[0].matches('.form-control')) // true
 var inputTimes = [nineAM, tenAM, elevenAM, twelvePM, onePM, twoPM, threePM, fourPM, fivePM];
 console.log(inputTimes);
 
-var btn9AM = $('button[id="9am"]');
-var btn10AM = $('button[id="10am"]');
-var btn11AM = $('button[id="11am"]');
-var btn12PM = $('button[id="12pm"]');
-var btn1PM = $('button[id="1pm"]');
-var btn2PM = $('button[id="2pm"]');
-var btn3PM = $('button[id="3pm"]');
-var btn4PM = $('button[id="4pm"]');
-var btn5PM = $('button[id="5pm"]');
+var btn9 = $('button[id="9am"]');
+var btn10 = $('button[id="10am"]');
+var btn11 = $('button[id="11am"]');
+var btn12 = $('button[id="12pm"]');
+var btn1 = $('button[id="1pm"]');
+var btn2 = $('button[id="2pm"]');
+var btn3 = $('button[id="3pm"]');
+var btn4 = $('button[id="4pm"]');
+var btn5 = $('button[id="5pm"]');
 
-var arrayOfBtns = [btn9AM, btn10AM, btn11AM, btn12PM, btn1PM, btn2PM, btn3PM, btn4PM, btn5PM];
+var arrayOfBtns = [btn9, btn10, btn11, btn12, btn1, btn2, btn3, btn4, btn5];
 console.log(arrayOfBtns);
 
 // for (var i = 0; i < inputTimes.length; i++) {
@@ -146,67 +146,70 @@ console.log(arrayOfBtns);
 //     }
 // };
 
-
-btn9AM.on('click', function(event) {
-    event.preventDefault();
-    localStorage.setItem("Time: " + label9 + "AM", nineAM.val());
-});
-
-btn10AM.on('click', function(event) {
-    event.preventDefault();
-    localStorage.setItem("Time: " + label10 + "AM", tenAM.val());
-});
-
-btn11AM.on('click', function(event) {
-    event.preventDefault();
-    localStorage.setItem("Time: " + label11 + "AM", elevenAM.val());
-});
-
-btn12PM.on('click', function(event) {
-    event.preventDefault();
-    localStorage.setItem("Time: " + label12 + "PM", twelvePM.val());
-});
-
-btn1PM.on('click', function(event) {
-    event.preventDefault();
-    localStorage.setItem("Time: " + label1 + "PM", onePM.val());
-});
-
-btn2PM.on('click', function(event) {
-    event.preventDefault();
-    localStorage.setItem("Time: " + label2 + "PM", twoPM.val());
-});
-
-btn3PM.on('click', function(event) {
-    event.preventDefault();
-    localStorage.setItem("Time: " + label3 + "PM", threePM.val());
-});
-
-btn4PM.on('click', function(event) {
-    event.preventDefault();
-    localStorage.setItem("Time: " + label4 + "PM", fourPM.val());
-});
-
-btn5PM.on('click', function(event) {
-    event.preventDefault();
-    localStorage.setItem("Time: " + label5 + "PM", fivePM.val());
-});
-
 function addToCalendar() {
     for (var i = 0; i < inputTimes.length; i++) {
-        if(!Object.values(inputTimes[i])[0].matches('.available')) {
-            // console.log(Object.values(inputTimes[i])[0].matches('.available'))
+        if(Object.values(inputTimes[i])[0].matches('.available')) {
+            btn9.on('click', function(event) {
+                event.preventDefault();
+                localStorage.setItem("Time: " + label9AM + "AM", nineAM.val());
+            });
+            
+            btn10.on('click', function(event) {
+                event.preventDefault();
+                localStorage.setItem("Time: " + label10AM + "AM", tenAM.val());
+            });
+            
+            btn11.on('click', function(event) {
+                event.preventDefault();
+                localStorage.setItem("Time: " + label11AM + "AM", elevenAM.val());
+            });
+            
+            btn12.on('click', function(event) {
+                event.preventDefault();
+                localStorage.setItem("Time: " + label12PM + "PM", twelvePM.val());
+            });
+            
+            btn1.on('click', function(event) {
+                event.preventDefault();
+                localStorage.setItem("Time: " + label1PM + "PM", onePM.val());
+            });
+            
+            btn2.on('click', function(event) {
+                event.preventDefault();
+                localStorage.setItem("Time: " + label2PM + "PM", twoPM.val());
+            });
+            
+            btn3.on('click', function(event) {
+                event.preventDefault();
+                localStorage.setItem("Time: " + label3PM + "PM", threePM.val());
+            });
+            
+            btn4.on('click', function(event) {
+                event.preventDefault();
+                localStorage.setItem("Time: " + label4PM + "PM", fourPM.val());
+            });
+            
+            btn5.on('click', function(event) {
+                event.preventDefault();
+                localStorage.setItem("Time: " + label5PM + "PM", fivePM.val());
+            });
+        } else {
             inputTimes[i].attr('disabled', 'disabled');
-            console.log(inputTimes[i][0].id.slice(0,-2));
         }
     };
 }
 
-// addToCalendar()
+addToCalendar()
 // TODO: Save the event in local storage when the save button is clicked in that timeblock.
 // utilise local storage to save calendar inputs, while the input cell is green
 
 
 // TODO: Persist events between refreshes of a page
 // use event.preventDefault() to stop forms from refreshing and deleting data
+function retrieveLocalData() {
+    var fivePMData = localStorage.getItem("Time: " + label5PM + "PM");
+    fivePM.val(fivePMData);
+}
+
+retrieveLocalData();
 
