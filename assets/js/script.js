@@ -7,11 +7,6 @@ currentDay.text(dayjs().format('dddd, MMMM D, YYYY'));
 // TODO: Present timeblocks for standard business hours when the user scrolls down.
 // time schedule should be from 9am to 5pm ✅
 
-// TODO: Color-code each timeblock based on past, present, and future when the timeblock is viewed.
-// if the current time is after a timeblock, that timeblock should be grey
-// if the current time matches a timeblock, it should be red
-// if the current time is before the remaining timeblocks, it should be green and future to add text
-
 var currentTime = parseInt(dayjs().format('H'));
 console.log(currentTime);
 
@@ -26,8 +21,10 @@ var threePM = $('input[id="3pm"]');
 var fourPM = $('input[id="4pm"]');
 var fivePM = $('input[id="5pm"]');
 
-// console.log(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 9
-// console.log(tenAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2)); // 10
+// TODO: Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+// if the current time is after a timeblock, that timeblock should be grey ✅
+// if the current time matches a timeblock, it should be red ✅
+// if the current time is before the remaining timeblocks, it should be green and future to add text ✅
 
 var label9AM = parseInt(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
 
@@ -120,7 +117,7 @@ if (label5PM < currentTime) {
 };
 
 // TODO: Allow a user to enter an event when they click a timeblock
-// while the timeblock is green, the user can add text
+// while the timeblock is green, the user can add text ✅
 console.log(Object.values(nineAM)[0].matches('.form-control')); // true
 
 var inputTimes = [nineAM, tenAM, elevenAM, twelvePM, onePM, twoPM, threePM, fourPM, fivePM];
@@ -153,6 +150,8 @@ for (var a = 0; a < inputTimes.length; a++) {
     };
 };
 
+// TODO: Persist events between refreshes of a page and add to local storage
+// use event.preventDefault() to stop forms from refreshing and deleting data ✅
 function addToCalendar() {
     for (var i = 0; i < inputTimes.length; i++) {
         if(Object.values(inputTimes[i])[0].matches('.future')) {
@@ -209,12 +208,8 @@ function addToCalendar() {
 
 addToCalendar();
 
-// TODO: Save the event in local storage when the save button is clicked in that timeblock.
-// utilise local storage to save calendar inputs, while the input cell is green ✅
-
-
-// TODO: Persist events between refreshes of a page
-// use event.preventDefault() to stop forms from refreshing and deleting data
+// TODO: Retrieves the data from local storage
+// previous input fields with data should continue to show on the page ✅
 function retrieveLocalData() {
     var nineAMData = localStorage.getItem("Time: " + label9AM + "AM");
     nineAM.val(nineAMData);
