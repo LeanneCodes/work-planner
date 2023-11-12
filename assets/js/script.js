@@ -220,7 +220,7 @@ function retrieveLocalData() {
     var elevenAMData = localStorage.getItem("Time: " + label11AM + "AM");
     elevenAM.val(elevenAMData);
 
-    var twelvePMData = localStorage.getItem("Time: " + label2PM + "PM");
+    var twelvePMData = localStorage.getItem("Time: " + label12PM + "PM");
     twelvePM.val(twelvePMData);
 
     var onePMData = localStorage.getItem("Time: " + label1PM + "PM");
