@@ -24,7 +24,7 @@ var fivePM = $('input[id="5pm"]');
 // TODO: Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 // if the current time is after a timeblock, that timeblock should be grey ✅
 // if the current time matches a timeblock, it should be red ✅
-// if the current time is before the remaining timeblocks, it should be green and future to add text ✅
+// if the current time is before the remaining timeblocks, it should be green and be able to add text ✅
 
 var label9AM = parseInt(nineAM.parent("div").siblings("div").children("label").eq(0).text().slice(0,-2));
 
