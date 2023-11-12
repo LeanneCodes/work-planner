@@ -42,11 +42,7 @@ header {
     height: 60px;
 }
 
-.past:focus {
-    background-color: var(--past);
-}
-
-.past:disabled {
+.past:focus, .past:disabled {
     background-color: var(--past);
 }
 
@@ -64,7 +60,7 @@ header {
     height: 60px;
 }
 
-.save-btn {
+.save-btn, .save-btn:focus {
     border-radius: 0px 10px 10px 0px;
     height: 60px;
     border-top: 1px solid white;
